@@ -1,0 +1,8 @@
+{
+  "apiKeys": {
+    "smite": {
+      "authKey": "YOUR_KEY_HERE",
+      "devId": "YOUR_KEY_HERE"
+    }
+  }
+}

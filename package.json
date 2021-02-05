@@ -1,0 +1,20 @@
+{
+  "name": "smite-api",
+  "version": "1.0.0",
+  "description": "microservice for smite. originally for localhost use\u001b",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "smite",
+    "api"
+  ],
+  "author": "acorpuz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1"
+  }
+}
