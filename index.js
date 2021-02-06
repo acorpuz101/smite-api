@@ -3,10 +3,11 @@ const path = require("path");
 const moment = require("moment");
 const express = require('express');
 
+const config = require("./config.json")
 const HiRezApi = require("./BaseApiCommands");
 
 const app = express();
-const PORT_NUMBER = 3000;
+const PORT_NUMBER = config.PORT;
 const http = require('http').Server(app);
 
 // Configure Express
@@ -16,7 +17,6 @@ const hiRezApi = new HiRezApi();
 
 // Configure Routing
 app.get('/', (req, res) => {
-  console.log("rq", req.query);
   return res.send("Smite Microservice is up. Try another endpoint like /motd.");
 });
 
