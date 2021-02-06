@@ -14,6 +14,19 @@ const http = require('http').Server(app);
 
 const hiRezApi = new HiRezApi();
 
+// Middleware to refresh Session
+app.use("/", async (req, res, next) => {
+  console.log(moment().format("MM/DD/YYYY HH:mm:ss"), "REQUEST", req.originalUrl);
+  const data = await hiRezApi.validateSession();
+  console.log(moment().format("MM/DD/YYYY HH:mm:ss"), "SESSION-CHECK", data);
+  if (data.toLowerCase().includes("invalid session id")) {
+    hiRezApi.setSessionToNull();
+    console.log("Invalid HiRez Session. Creating new session.");
+    await hiRezApi.createSession();
+  }
+  next();
+});
+
 
 // Configure Routing
 app.get('/', (req, res) => {
